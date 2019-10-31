@@ -26,6 +26,8 @@ class ViewBuilding extends React.Component {
 					<p>
 						<b>NAME: </b> {currentBuilding.name}
 						<br/>
+						<b>CODE: </b> {currentBuilding.code}
+						<br/>
 						<b>ADDRESS: </b> {currentBuilding.address}
 						<br/>
 						<b>COORDINATES: </b>
@@ -42,6 +44,8 @@ class ViewBuilding extends React.Component {
 				<div>
 					<p>
 						<b>NAME: </b> {currentBuilding.name}
+						<br/>
+						<b>CODE: </b> {currentBuilding.code}
 						<br/>
 						<b>ADDRESS: </b> None
 						<br/>
