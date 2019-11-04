@@ -1,6 +1,9 @@
 import React from 'react';
 
 class ViewBuilding extends React.Component {
+
+
+
 	render() {
 		const currentBuilding = this.props.data.find(selected =>
 			{
@@ -33,6 +36,8 @@ class ViewBuilding extends React.Component {
 						<b>COORDINATES: </b>
 						<br/>{currentBuilding.coordinates.latitude}, {currentBuilding.coordinates.longitude}
 						<br/>
+						<b>  <button onClick={()=>this.props.deleteByID()}>Remove Building</button> </b>
+
 
 
 					</p>
@@ -49,6 +54,8 @@ class ViewBuilding extends React.Component {
 						<br/>
 						<b>ADDRESS: </b> None
 						<br/>
+						<b>  <button onClick={() =>this.props.deleteByID()}>Remove Building</button> </b>
+
 
 					</p>
 				</div>

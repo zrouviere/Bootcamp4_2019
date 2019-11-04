@@ -3,13 +3,15 @@ import Search from './components/Search';
 import ViewBuilding from './components/ViewBuilding';
 import BuildingList from './components/BuildingList';
 import Credit from './components/Credit';
+import AddBuilding from "./components/AddBuilding";
 
 class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       filterText: '',
-      selectedBuilding: 0
+      selectedBuilding: 0,
+      listings: this.props.data
     };
   }
 
@@ -23,6 +25,17 @@ class App extends React.Component {
   selectedUpdate(id) {
     //Here you will need to update the selectedBuilding property of state to the id passed into this function
     this.setState({selectedBuilding: id});
+  }
+  deleteByID(){
+      var listings = this.state.listings.filter(
+          listing => {
+        return listing.id !== this.state.selectedBuilding.id
+      })
+      this.setState({
+        listings: listings
+      })
+
+
   }
 
   render() {
@@ -48,7 +61,7 @@ class App extends React.Component {
                     </td>
                   </tr>
                   <BuildingList
-                    data={this.props.data}
+                    data={this.state.listings}
                     filterText ={this.state.filterText}
                     selectedUpdate = {this.selectedUpdate.bind(this)}
                   />
@@ -59,9 +72,12 @@ class App extends React.Component {
               <ViewBuilding
                   data={this.props.data}
                   selectedUpdate={this.state.selectedBuilding}
+                  deleteByID = {this.deleteByID.bind(this)}
               />
             </div>
+
           </div>
+          <AddBuilding/>
           <Credit />
         </main>
       </div>
