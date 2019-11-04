@@ -1,4 +1,5 @@
 import React from 'react';
+import '../App.css'
 //COPIED SKELETON FROM REACTJS WEBSITE
 
 
@@ -16,13 +17,13 @@ class AddBuilding extends React.Component {
             code: this.code.value.toUpperCase(),
             name: this.building.value
         }
-        if (this.latitude.value && this.longitude.value) {
+
             listing.coordinates = {
                 latitude: this.latitude.value,
                 longitude: this.longitude.value
-            }
+
         }
-        if (this.address.value)
+
             listing.address = this.address.value
 
         this.props.addBuilding(listing);
@@ -57,7 +58,7 @@ class AddBuilding extends React.Component {
                     Longitude:
                     <input type="text" ref={(longitude) => this.longitude = longitude} />
                 </label>
-                <input type="button" value="Add Building" onClick={this.addBuilding.bind(this)}/>
+                <input className="Button" type="button" value="Add Building" onClick={this.addBuilding.bind(this)}/>
 </form>
         );
     }

@@ -1,4 +1,5 @@
 import React from 'react';
+import "../App.css"
 
 class ViewBuilding extends React.Component {
 
@@ -36,7 +37,7 @@ class ViewBuilding extends React.Component {
 						<b>COORDINATES: </b>
 						<br/>{currentBuilding.coordinates.latitude}, {currentBuilding.coordinates.longitude}
 						<br/>
-						<b>  <button onClick={()=>this.props.deleteByID()}>Remove Building</button> </b>
+						<b>  <button className="Button" onClick={()=>this.props.deleteByID()}>Remove Building</button> </b>
 
 
 
@@ -54,7 +55,7 @@ class ViewBuilding extends React.Component {
 						<br/>
 						<b>ADDRESS: </b> None
 						<br/>
-						<b>  <button onClick={() =>this.props.deleteByID()}>Remove Building</button> </b>
+						<b>  <button className="Button" onClick={() =>this.props.deleteByID()}>Remove Building</button> </b>
 
 
 					</p>

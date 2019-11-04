@@ -38,8 +38,8 @@ class App extends React.Component {
 
   addBuilding(newBuilding){
     console.log("GOT TO APP")
-     var count = 0;
-     var id = this.state.listings.filter(
+     var count = 1;
+     var id = this.props.data.filter(
          listing =>{
            count++
            return listing
@@ -50,8 +50,8 @@ class App extends React.Component {
       var name = newBuilding.name;
       var code = newBuilding.code;
       var address = newBuilding.address;
-      var latitude = newBuilding.latitude;
-      var longitude = newBuilding.longitude;
+      var latitude = newBuilding.coordinates.latitude;
+      var longitude = newBuilding.coordinates.longitude;
 
       var curDirectory = {
         id: id,
@@ -109,7 +109,7 @@ class App extends React.Component {
             </div>
             <div className="column2">
               <ViewBuilding
-                  data={this.props.data}
+                  data={this.state.listings}
                   selectedUpdate={this.state.selectedBuilding}
                   deleteByID = {this.deleteByID.bind(this)}
               />
