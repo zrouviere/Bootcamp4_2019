@@ -34,6 +34,45 @@ class App extends React.Component {
       this.setState({
         listings: listings
       })
+  }
+
+  addBuilding(newBuilding){
+    console.log("GOT TO APP")
+     var count = 0;
+     var id = this.state.listings.filter(
+         listing =>{
+           count++
+           return listing
+         }
+     )
+    id = count;
+     console.log(count);
+      var name = newBuilding.name;
+      var code = newBuilding.code;
+      var address = newBuilding.address;
+      var latitude = newBuilding.latitude;
+      var longitude = newBuilding.longitude;
+
+      var curDirectory = {
+        id: id,
+        code: code,
+        name: name,
+        address: address,
+        coordinates: {
+          latitude: latitude,
+          longitude: longitude
+        }
+      }
+
+      const newDirectory = this.state.listings
+          .map(value => { return value })
+          .concat(curDirectory)
+
+
+      this.setState({
+        listings: newDirectory
+      })
+    alert('Building ' + newBuilding.name + " has been added!");
 
 
   }
@@ -77,7 +116,9 @@ class App extends React.Component {
             </div>
 
           </div>
-          <AddBuilding/>
+          <AddBuilding
+          addBuilding = {this.addBuilding.bind(this)}
+          />
           <Credit />
         </main>
       </div>
